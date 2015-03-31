@@ -14,11 +14,7 @@ module PayByNet
       @currency = currency
       @email = email
       @account = account.bank_account
-      @name = account.name
-      @postal_code = account.postal_code 
-      @city = account.city
-      @street = account.street
-      @country = account.country
+      @company = account
       @backpage = backpage
       @backpagereject = backpagereject
       @automat = automat
@@ -88,7 +84,7 @@ module PayByNet
     end
 
      def accname
-      "<accname>" + @name + "^NM^" + @postal_code + "^ZP^" + @city + "^CI^" + @street +"^ST^" + @country + "^CT^</accname>"
+      "<accname>" + @company.name + "^NM^" + @company.postal_code + "^ZP^" + @company.city + "^CI^" + @company.street + "^ST^" + @company.country + "^CT^</accname>"
     end
 
      def backpage
