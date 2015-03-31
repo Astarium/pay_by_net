@@ -1,11 +1,13 @@
-require 'digest'
+require "digest"
+require "base64"
+require "time"
 
 module PayByNet
   class Payment
-    # attr_accessor :id_client, :id_trans, :date_valid, :amount, :currency, :email, :account, :accname, :backpage, :backpagereject, automat:
 
     def initialize(account, id_trans, amount, currency, email, backpage, backpagereject, automat, password, *date_valid)
-      @date_valid = date_valid[0] ||(Time.now + 900).strftime('%d-%m-%Y %H:%M:%S')
+      @date_valid = Time.parse(date_valid[0]) || (Time.now + 900)
+      @date_valid = @date_valid.strftime("%d-%m-%Y %H:%M:%S")
       @id_client = account.id_client
       @id_trans = id_trans
       @amount = amount
@@ -21,6 +23,32 @@ module PayByNet
       @backpagereject = backpagereject
       @automat = automat
       @password = password
+      validate_data
+    end
+
+    def validate_data
+      validate_id_trans
+      validate_password
+    end
+
+    def validate_id_trans
+      if @id_trans.length != 10
+        raise "Your transaction id is not valid"
+      end
+    end
+
+    def validate_password
+      if @password.length < 8 || @password.length > 40
+        raise "Your password is not valid"
+      end
+    end
+
+    def generate_payment
+      Base64.encode64(generate_data)
+    end
+
+    def generate_data
+      generate_string + hash
     end
 
     def generate_string
@@ -32,17 +60,11 @@ module PayByNet
       account + 
       accname + 
       backpage + 
-      backpagereject
-      
+      backpagereject      
     end
-
-    def generate_data
-      generate_string + hash
-    end
-
 
     def client
-      "<id_client>" + @id_client.to_s + "</id_client>"
+      "<id_client>" + @id_client + "</id_client>"
     end
 
     def transaction
@@ -50,7 +72,7 @@ module PayByNet
     end
 
     def date
-      "<date_valid>" + @date_valid.to_s + "</date_valid>"
+      "<date_valid>" + @date_valid + "</date_valid>"
     end
 
     def amount
@@ -62,7 +84,7 @@ module PayByNet
     end
 
     def account
-      "<account>" + @account.to_s + "</account>"
+      "<account>" + @account + "</account>"
     end
 
      def accname
