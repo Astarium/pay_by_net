@@ -1,18 +1,22 @@
 require 'digest'
 
-# module PayByNet
+module PayByNet
   class Payment
     # attr_accessor :id_client, :id_trans, :date_valid, :amount, :currency, :email, :account, :accname, :backpage, :backpagereject, automat:
 
-    def initialize(id_client, id_trans, amount, currency, email, account, accname, backpage, backpagereject, automat, password, *date_valid)
-      @date_valid = date_valid[0] ||(Time.now + 900).strftime('%Y-%m-%d %H:%M:%S')
-      @id_client = id_client
+    def initialize(account, id_trans, amount, currency, email, backpage, backpagereject, automat, password, *date_valid)
+      @date_valid = date_valid[0] ||(Time.now + 900).strftime('%d-%m-%Y %H:%M:%S')
+      @id_client = account.id_client
       @id_trans = id_trans
       @amount = amount
       @currency = currency
       @email = email
-      @account = account
-      @accname = accname
+      @account = account.bank_account
+      @name = account.name
+      @postal_code = account.postal_code 
+      @city = account.city
+      @street = account.street
+      @country = account.country
       @backpage = backpage
       @backpagereject = backpagereject
       @automat = automat
@@ -50,7 +54,7 @@ require 'digest'
     end
 
     def amount
-      "<id_trans>" + @amount + "</id_trans>"
+      "<amount>" + @amount + "</amount>"
     end
 
     def currency
@@ -62,7 +66,7 @@ require 'digest'
     end
 
      def accname
-      "<accname>" + @accname + "</accname>"
+      "<accname>" + @name + "^NM^" + @postal_code + "^ZP^" + @city + "^CI^" + @street +"^ST^" + @country + "^CT^</accname>"
     end
 
      def backpage
@@ -86,8 +90,4 @@ require 'digest'
       "<hash>" + hash_data + "</hash>"
     end
   end
-# end
-#  Digest::SHA1.hexdigest
-
-a = Payment.new(1132854509, "AA100100", '49,99', "PLN", "koleo@koleo.pl", 12345678901234567890123456, 'Astarium', 'www.koleo.pl', "www.koleo.pl", "automat", "koleo")
-puts a.generate_data
+end
