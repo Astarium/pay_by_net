@@ -5,9 +5,8 @@ require "time"
 module PayByNet
   class Payment
 
-    def initialize(account, id_trans, amount, currency, email, backpage, backpagereject, automat, password, *date_valid)
-      @date_valid = Time.parse(date_valid[0]) || (Time.now + 900)
-      @date_valid = @date_valid.strftime("%d-%m-%Y %H:%M:%S")
+    def initialize(account, id_trans, amount, currency, email, backpage, backpagereject, automat, password, date_valid = Time.now + 900)
+      @date_valid = Time.parse(date_valid).strftime("%d-%m-%Y %H:%M:%S")
       @id_client = account.id_client
       @id_trans = id_trans
       @amount = amount
@@ -23,6 +22,7 @@ module PayByNet
     end
 
     def validate_data
+      validate_date
       validate_id_trans
       validate_password
     end
@@ -36,6 +36,12 @@ module PayByNet
     def validate_password
       if @password.length < 8 || @password.length > 40
         raise "Your password is not valid"
+      end
+    end
+
+    def validate_date
+      if Time.parse(@date_valid) < Time.now + 900 || Time.parse(@date_valid) > Time.now + 2592000
+        raise "Your date is not valid"
       end
     end
 
