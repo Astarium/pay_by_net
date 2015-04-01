@@ -6,7 +6,7 @@ module PayByNet
   class Payment
 
     def initialize(account, id_trans, amount, currency, email, backpage, backpagereject, automat, password, date_valid = Time.now + 900)
-      @date_valid = Time.parse(date_valid).strftime("%d-%m-%Y %H:%M:%S")
+      @date_valid = Time.parse(date_valid)
       @id_client = account.id_client
       @id_trans = id_trans
       @amount = amount
@@ -40,7 +40,7 @@ module PayByNet
     end
 
     def validate_date
-      if Time.parse(@date_valid) < Time.now + 900 || Time.parse(@date_valid) > Time.now + 2592000
+      if @date_valid < Time.now + 900 || @date_valid > Time.now + 2592000
         raise "Your date is not valid"
       end
     end
@@ -74,7 +74,7 @@ module PayByNet
     end
 
     def date
-      "<date_valid>" + @date_valid + "</date_valid>"
+      "<date_valid>" + @date_valid.strftime("%d-%m-%Y %H:%M:%S") + "</date_valid>"
     end
 
     def amount

@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.date          = '2015-04-01'
   s.summary       = 'PayByNet Ruby Gem'
   s.description   = 'Gem creating information demended by PayByNet system'
-  s.authors       = 'astarium'
+  s.authors       = 'astarium, Małgorzata Ksionek'
   s.files         = `git ls-files`.split("\n")
   s.require_paths = ['lib']
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
