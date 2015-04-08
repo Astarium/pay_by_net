@@ -40,13 +40,13 @@ module PayByNet
     end
 
     def validate_date
-      if @date_valid < Time.now + 900 || @date_valid > Time.now + 2592000
+      if @date_valid < Time.now + 900 || @date_valid > Time.now + 604800
         raise "Your date is not valid"
       end
     end
 
     def generate_payment
-      Base64.encode64(generate_data)
+      Base64.strict_encode64(generate_data)
     end
 
     def generate_data
