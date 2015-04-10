@@ -17,7 +17,6 @@ describe PayByNet::Payment do
 
   it 'codes properly with base64' do
     coded_transaction = @transaction.generate_payment
-    puts coded_transaction
     Base64.decode64(coded_transaction).must_equal @transaction.generate_data
   end
 end
