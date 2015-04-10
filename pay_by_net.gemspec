@@ -9,4 +9,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.license       = 'MIT'
+
+  s.add_dependency 'savon', '~> 2.3.0'
 end
