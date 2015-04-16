@@ -1,0 +1,56 @@
+PATH
+  remote: .
+  specs:
+    pay_by_net (0.0.0)
+      rest-client
+      savon (~> 2.3.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    akami (1.2.2)
+      gyoku (>= 0.4.0)
+      nokogiri
+    builder (3.2.2)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
+    gyoku (1.1.1)
+      builder (>= 2.1.2)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    httpi (2.1.1)
+      rack
+      rubyntlm (~> 0.3.2)
+    mime-types (1.25.1)
+    mini_portile (0.6.2)
+    netrc (0.10.3)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
+    nori (2.3.0)
+    rack (1.6.0)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rubyntlm (0.3.4)
+    savon (2.3.3)
+      akami (~> 1.2.0)
+      builder (>= 2.1.2)
+      gyoku (~> 1.1.0)
+      httpi (~> 2.1.0)
+      nokogiri (>= 1.4.0)
+      nori (~> 2.3.0)
+      wasabi (~> 3.2.2)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.6)
+    wasabi (3.2.3)
+      httpi (~> 2.0)
+      mime-types (< 2.0.0)
+      nokogiri (>= 1.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pay_by_net!
