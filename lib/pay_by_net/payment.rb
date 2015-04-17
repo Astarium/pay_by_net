@@ -5,15 +5,13 @@ require "time"
 module PayByNet
   class Payment
 
-    def initialize(account, id_trans, amount, currency, email, backpage, backpagereject, automat, password, date_valid = Time.now + 900)
+    def initialize(company, id_trans, amount, currency, email, backpage, backpagereject, automat, password, date_valid = Time.now + 900)
       @date_valid = parse_date(date_valid)
-      @id_client = account.id_client
       @id_trans = id_trans
       @amount = amount
       @currency = currency
       @email = email
-      @account = account.bank_account
-      @company = account
+      @company = company
       @backpage = backpage
       @backpagereject = backpagereject
       @automat = automat
@@ -74,7 +72,7 @@ module PayByNet
     end
 
     def client
-      "<id_client>" + @id_client + "</id_client>"
+      "<id_client>" + @company.id_client + "</id_client>"
     end
 
     def transaction
@@ -94,7 +92,7 @@ module PayByNet
     end
 
     def account
-      "<account>" + @account + "</account>"
+      "<account>" + @company.bank_account+ "</account>"
     end
 
      def accname
