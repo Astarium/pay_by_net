@@ -20,6 +20,11 @@ transaction.generate_payment
 
 ## Getting list of available banks
 
+```ruby
+banks = BankLoader.new.import_banks 
+puts banks.first.image
+```
+
 ## Confiriming payment
 
 ## License
