@@ -6,11 +6,9 @@ module PayByNet
     end
 
     def import_banks
-      banks = []
-      @source.xpath('//banks/bank').each do |bank|
-        banks << create_bank(bank)
+      @source.xpath('//banks/bank').map do |bank|
+        create_bank(bank)
       end
-      return banks
     end
 
     def create_bank(bank)
