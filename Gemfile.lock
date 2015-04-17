@@ -4,6 +4,7 @@ PATH
     pay_by_net (0.0.0)
       rest-client
       savon (~> 2.3.0)
+      timecop
 
 GEM
   remote: https://rubygems.org/
@@ -41,6 +42,7 @@ GEM
       nokogiri (>= 1.4.0)
       nori (~> 2.3.0)
       wasabi (~> 3.2.2)
+    timecop (0.7.1)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.6)

@@ -3,6 +3,8 @@ require_relative 'test_helper'
 describe PayByNet::Payment do 
 
   before do 
+    new_time = Time.local(2015, 4, 13, 12, 0, 0)
+    Timecop.freeze(new_time)
     @date = "14-04-2015 12:00:00"
     astarium = PayByNet::Account.new(1132854509, 'Astarium','00-111','Warszawa','Francuska 23','Polska',  44114020040000310215823843)
     @transaction = PayByNet::Payment.new(astarium, "AABB100100", '49,99', "PLN", "koleo@koleo.pl", 'www.koleo.pl', "www.koleo.pl", "automat", "koleokoleo", @date)
