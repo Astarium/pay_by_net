@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'rest-client'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'timecop'
-  s.add_developemnt_dependency 'minitest'
+  s.add_development_dependency 'minitest'
 end
