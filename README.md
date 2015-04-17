@@ -5,7 +5,7 @@ This gem helps working with [PayByNet](http://www.paybynet.pl), internet payment
 
 # Getting started
 
-Pay_by_net works with Ruby 2.0 onwards. You can add it to your Gemfile with:
+Pay_by_net works with Ruby 1.9.3 onwards. You can add it to your Gemfile with:
 
 ```ruby
 gem 'pay_by_net'
