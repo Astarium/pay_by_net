@@ -1,5 +1,8 @@
 This gem helps working with [PayByNet](http://www.paybynet.pl), internet payment system.
 
+[![Build Status](https://travis-ci.org/Astarium/pay_by_net.svg?branch=master)](https://travis-ci.org/Astarium/pay_by_net)
+
+
 # Getting started
 
 Pay_by_net works with Ruby 2.0 onwards. You can add it to your Gemfile with:
