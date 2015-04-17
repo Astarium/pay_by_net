@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'savon', '~> 2.3.0'
   s.add_dependency 'rest-client'
-  s.add_development_dependency 'timecop'
   s.add_development_dependency 'webmock' 
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'timecop'
 end

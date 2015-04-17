@@ -4,8 +4,6 @@ PATH
     pay_by_net (0.0.0)
       rest-client
       savon (~> 2.3.0)
-      timecop
-      webmock
 
 GEM
   remote: https://rubygems.org/
@@ -33,6 +31,7 @@ GEM
       mini_portile (~> 0.6.0)
     nori (2.3.0)
     rack (1.6.0)
+    rake (10.4.2)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -64,3 +63,6 @@ PLATFORMS
 
 DEPENDENCIES
   pay_by_net!
+  rake
+  timecop
+  webmock
