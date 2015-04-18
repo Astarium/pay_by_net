@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'savon', '~> 2.3'
   s.add_dependency 'rest-client', '~> 0'
   s.add_development_dependency 'rake', '~> 0'
-  s.add_development_dependency 'minitest', '~> 0'
+  s.add_development_dependency 'minitest', '~> 5.6'
   s.add_development_dependency 'timecop', '~> 0'
   s.add_development_dependency 'webmock', '~> 0'
 end
