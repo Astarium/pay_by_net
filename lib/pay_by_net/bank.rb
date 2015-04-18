@@ -8,11 +8,11 @@ module PayByNet
     end
 
     def parse_bank
-      self.name = @bank.css('name').inner_text
-      self.id = @bank.css('id').inner_text
-      self.bank_id = check_for_spoldzielcze(self.id)
-      self.image = generate_image_link(@bank.css('image').inner_text)
-      self.card = @bank.css('card').inner_text.to_i 
+      @name = @bank.css('name').inner_text
+      @id = @bank.css('id').inner_text
+      @bank_id = check_for_spoldzielcze(@id)
+      @image = generate_image_link(@bank.css('image').inner_text)
+      @card = @bank.css('card').inner_text.to_i 
       return self
     end
 

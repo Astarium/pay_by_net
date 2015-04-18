@@ -8,10 +8,13 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.7)
     akami (1.2.2)
       gyoku (>= 0.4.0)
       nokogiri
     builder (3.2.2)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     gyoku (1.1.1)
@@ -35,6 +38,7 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rubyntlm (0.3.4)
+    safe_yaml (1.0.4)
     savon (2.3.3)
       akami (~> 1.2.0)
       builder (>= 2.1.2)
@@ -51,6 +55,9 @@ GEM
       httpi (~> 2.0)
       mime-types (< 2.0.0)
       nokogiri (>= 1.4.0)
+    webmock (1.20.4)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
@@ -60,3 +67,4 @@ DEPENDENCIES
   pay_by_net!
   rake
   timecop
+  webmock
