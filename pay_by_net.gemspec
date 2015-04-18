@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
 
   s.add_dependency 'savon', '~> 2.3'
-  s.add_dependency 'rest-client', '~> 0'
+  s.add_dependency 'rest-client', '~> 0.9'
   s.add_development_dependency 'rake', '~> 0'
   s.add_development_dependency 'minitest', '~> 5.6'
   s.add_development_dependency 'timecop', '~> 0'

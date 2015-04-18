@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     pay_by_net (0.0.1)
-      rest-client (~> 0)
+      rest-client (~> 0.9)
       savon (~> 2.3)
 
 GEM
