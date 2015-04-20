@@ -4,7 +4,7 @@ module PayByNet
     attr_reader :source
 
     def initialize
-      @source = Nokogiri::XML(RestClient.get "https://pbn.paybynet.com.pl/PayByNet/update/os/banks.xml")
+      @source = Nokogiri::XML(RestClient.get "https://pbn.paybynet.com.pl/PayByNetT/update/os/banks.xml")
     end
 
     def import_banks
