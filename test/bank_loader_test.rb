@@ -18,7 +18,7 @@ describe PayByNet::BankLoader do
                     </bank>
                     </banks"
 
-  stub_request(:get, "https://pbn.paybynet.com.pl/PayByNet/update/os/banks.xml").
+  stub_request(:get, "https://pbn.paybynet.com.pl/PayByNetT/update/os/banks.xml").
     to_return(status: 200, body: response_body, headers: {})
 
   
