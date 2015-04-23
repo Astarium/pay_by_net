@@ -27,7 +27,7 @@ module PayByNet
 
     def validate_id_trans
       if @id_trans.length != 10
-        raise "Your transaction id is not valid"
+        raise InvalidTransactionId.new(@id_trans.length)
       end
     end
 
