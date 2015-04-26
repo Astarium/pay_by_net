@@ -33,7 +33,7 @@ module PayByNet
 
     def validate_password
       if @password.length < 8 || @password.length > 40
-        raise "Your password is not valid"
+        raise InvalidPassword.new(@password.length)
       end
     end
 

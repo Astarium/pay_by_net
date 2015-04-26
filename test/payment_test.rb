@@ -31,6 +31,14 @@ describe PayByNet::Payment do
     it 'raises an error when id_trans has more than 10 chars' do
       assert_raises(PayByNet::InvalidTransactionId) {PayByNet::Payment.new(@astarium, "012345", '49,99', "PLN", "koleo@koleo.pl", 'www.koleo.pl', "www.koleo.pl", "automat", "koleokoleo", @date)}
     end
+
+    it 'raises an error when password has less than 8 chars' do
+      assert_raises(PayByNet::InvalidPassword) {PayByNet::Payment.new(@astarium, "AABB100100", '49,99', "PLN", "koleo@koleo.pl", 'www.koleo.pl', "www.koleo.pl", "automat", "1234567", @date)}
+    end
+
+    it 'raises an error when password has more than 40 chars' do
+      assert_raises(PayByNet::InvalidPassword) {PayByNet::Payment.new(@astarium, "AABB100100", '49,99', "PLN", "koleo@koleo.pl", 'www.koleo.pl', "www.koleo.pl", "automat", "1234567901234567890123456789012345678901234567891", @date)}
+    end
   end
 end
 
