@@ -1,10 +1,11 @@
 module PayByNet
   class PaymentVerifier
 
-    attr_accessor :payment_id
+    attr_accessor :payment_id, :client_id
 
-    def initialize(payment_id)
+    def initialize(payment_id, client_id)
       @payment_id = payment_id
+      @client_id = client_id
     end
 
     def verify
@@ -13,7 +14,7 @@ module PayByNet
 
     def connect
       @client = Savon.client(wsdl: 'https://pbn.paybynet.com.pl/axist/services/PBNTransactionsGetStatus?wsdl')
-      response =@client.call(:get_status_by_payment_id, message: {in0: payment_id,  in1: ENV['COMPANY_NIP']})
+      response =@client.call(:get_status_by_payment_id, message: {in0: payment_id,  in1: client_id})
       status_code(response)
     end
 
