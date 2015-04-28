@@ -30,7 +30,7 @@ describe PayByNet::BankLoader do
     end
 
     it 'has proper image link' do
-      @bank.parse_bank.image.must_equal "https://pbn.paybynet.com.pl/PayByNetT/assets/img/24900005.png"
+      @bank.parse_bank.image.must_equal "24900005.png"
     end
 
   end
