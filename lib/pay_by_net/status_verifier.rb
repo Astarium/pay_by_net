@@ -2,7 +2,7 @@ module PayByNet
   class StatusVerifier
 
   	def initialize(status)
-  		@status = status
+  		@status = status.to_i
   	end
 
   	def completed?
