@@ -4,7 +4,7 @@ require File.expand_path('../lib/pay_by_net/version', __FILE__)
 Gem::Specification.new do |s|
   s.name          = 'pay_by_net'
   s.version       =  PayByNet::VERSION
-  s.date          = '2015-04-01'
+  s.date          = '2016-02-29'
   s.summary       = 'Ruby interface for PayByNet payment system'
 
   s.description   = "Pay_by_net is framewrok agnostic Ruby interface for PayByNet payment system. Provides classes for creating payment's hashtrans, veryfing PayByNet responses and getting list of available banks. It can operate in production or test mode."
