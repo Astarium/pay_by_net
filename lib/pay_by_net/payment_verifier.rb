@@ -17,7 +17,7 @@ module PayByNet
     end
 
     def response
-      @client = Savon.client(wsdl: 'https://pbn.paybynet.com.pl/axist/services/PBNTransactionsGetStatus?wsdl')
+      @client = Savon.client(wsdl: 'https://pbn.paybynet.com.pl/axis/services/PBNTransactionsGetStatus?wsdl')
       @client.call(:get_status_by_payment_id, message: {in0: payment_id,  in1: client_id})
     end
 
