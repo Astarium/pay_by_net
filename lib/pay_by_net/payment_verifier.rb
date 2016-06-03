@@ -17,19 +17,12 @@ module PayByNet
     end
 
     def response
-      @client = Savon.client(wsdl: verification_wsdl)
+      @client = Savon.client(wsdl: PayByNet.verification_wsdl)
       @client.call(:get_status_by_payment_id, message: {in0: payment_id,  in1: client_id})
     end
 
     def status_code(response)
       response.body[:get_status_by_payment_id_response][:get_status_by_payment_id_return].to_i
     end
-
-  private
-
-    def verification_wsdl
-      ENV['PBN_VERIF_WSDL']
-    end
-
   end
 end
