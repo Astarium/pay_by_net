@@ -30,6 +30,16 @@ puts banks.first.image
 
 ## Confiriming payment
 
+## Configuration ##
+
+Config file needs to be put in config/initializers directory.
+
+```ruby
+PayByNet.setup do |config|
+  config.test_mode = true # confirm payments in test environment
+end
+```
+
 ## License
 
 MIT License. Copyright 2015 Astarium Sp. z o.o. http://astarium.pl
