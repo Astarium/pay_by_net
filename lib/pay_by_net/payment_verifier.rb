@@ -3,9 +3,10 @@ module PayByNet
 
     attr_accessor :payment_id, :client_id
 
-    def initialize(payment_id, client_id)
+    def initialize(payment_id, client_id, amount)
       @payment_id = payment_id
       @client_id = client_id
+      @amount = amount.to_f.round(2)
     end
 
     def verify
@@ -18,7 +19,7 @@ module PayByNet
 
     def response
       @client = Savon.client(wsdl: PayByNet.verification_wsdl)
-      @client.call(:get_status_by_payment_id, message: {in0: payment_id,  in1: client_id})
+      @client.call(:get_status_by_payment_id, message: {in0: payment_id, in1: client_id, in2: @amount})
     end
 
     def status_code(response)
