@@ -33,7 +33,7 @@ GEM
       mini_portile (~> 0.6.0)
     nori (2.5.0)
     rack (1.6.0)
-    rake (0.9.6)
+    rake (13.0.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -68,6 +68,6 @@ PLATFORMS
 DEPENDENCIES
   minitest
   pay_by_net!
-  rake (~> 0)
+  rake (~> 13)
   timecop (~> 0)
   webmock (~> 1)
